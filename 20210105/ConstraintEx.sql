@@ -85,3 +85,4 @@ create table member01 (
 INSERT INTO member01 VALUES ('a', '홍길동', '123');
 INSERT INTO member01 VALUES ('a', '홍길동', '1234');
 INSERT INTO member01 VALUES ('123', '홍길동', 'a');
+commit;
