@@ -62,3 +62,17 @@ SELECT * FROM dept
     WHERE EXISTS (
     SELECT * FROM emp WHERE deptno = 50
     );
+
+-- 서브 쿼리를 이용한 테이블 생성
+desc emp0202;
+SELECT * FROM user_constraints WHERE table_name IN ('EMP02', 'EMP0202');
+
+-- 테이블 전체 복사
+CREATE TABLE emp0202 AS SELECT * FROM emp02;
+
+SELECT * FROM emp0202;
+SELECT * FROM emp02;
+
+-- 테이블 구조만 복사
+CREATE TABLE emp020202 AS SELECT * FROM emp02 WHERE 1=0;
+SELECT * FROM emp020202;
