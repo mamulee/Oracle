@@ -92,6 +92,8 @@ WHERE deptno = 30 WITH READ ONLY;
 UPDATE emp_view30 SET deptno = 40;
 UPDATE emp_view30 SET ename = 'aaa'; -- 다 안 됨~
 
+DELETE FROM emp WHERE ename = 'aaaa';
+
 -- ROWNUM
 SELECT ROWNUM, empno, ename, hiredate FROM emp ORDER BY hiredate;
 
@@ -111,4 +113,12 @@ SELECT * FROM view_hire;
 SELECT * FROM view_view_hire;
 
 -- 인라인 뷰
-SELECT e.deptno, d.dname, e.sal FROM (SELECT deptno, max(sal) FROM emp GROUP BY deptno) e, dept d;
+SELECT e.deptno, d.dname, e.maxSal 
+    FROM (SELECT deptno, max(sal) maxSal 
+        FROM emp GROUP BY deptno) e, dept d;
+
+-- 입사일 최신 5명
+SELECT empno, ename, hiredate FROM (
+    SELECT empno, ename, hiredate FROM emp ORDER BY hiredate desc
+    )
+    WHERE ROWNUM <=5;
