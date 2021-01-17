@@ -2,13 +2,13 @@
 
 SET serveroutput ON;
 
-/
+
 BEGIN
    dbms_output.put_line('Hello');
 END;
 /
 
-/
+
 DECLARE
     VEMPNO NUMBER(4);
     VENAME VARCHAR2(10);
